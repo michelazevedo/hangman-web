@@ -1,0 +1,13 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <span>The Hangman Game</span>
+    </mat-toolbar><br/><br/>
+    <img src={{image}}/>
+    <span *ngFor="let c of guessWord" class="ch-char">{{c}}</span>
+    <br/><br/>
+    <span *ngFor="let ch of characters" class="ch-button">
+      <button mat-raised-button color="primary" (click)="guess(ch)">{{ch}}</button>
+    </span>
+  </mat-sidenav-content>
+</mat-sidenav-container>
