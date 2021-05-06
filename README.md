@@ -1,27 +1,20 @@
-# HangmanWeb
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.28.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Hangman Web (Angular) + Spring Boot App
 
 ## Build
+- Clone the web app repo: git clone git@github.com:michelazevedo/hangman-web.git
+- Clone the spring boot app repo: git clone git@github.com:michelazevedo/hangman.git
+- Enter the web project directory (hangman-web) and run: npm install
+- Compile the source: ng build --prod (assuming npm is installed)
+- Copy the resources from hangman-web\dist\hangman-web to the directory hangman\src\main\resources\static
+- In the spring boot app directory (hangman) run: mvnw clean package
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Running
 
-## Running unit tests
+- Start the project running from the "hangman" directory: java -jar target/hangman.jar 
+- Go to http://localhost:8080/ 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Game operation
+- The game will pick a ramdom word for you;
+- You should pick a word from the "Word buttons painel";
+- Try to guess the word's characters. You have 6 changes to guess the word;
+- The game ends and restarts if you run out of attempts or if you guess the word correctly.
