@@ -2,22 +2,23 @@
   height: 100%;
 }
 
-.sidenav {
-  width: 200px;
+.guess-painel {
+  display: grid;
+  column-gap: 15px;
 }
 
-.sidenav .mat-toolbar {
-  background: inherit;
+.container {
+  display: grid;
+  grid-template-columns: 350px 200px;
+  grid-template-rows: 250px auto;
+  align-items: center;
+  font-size: xxx-large; 
 }
 
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
-
-.ch-button {
-  padding: 5px;
-  height: 60px;
+.buttons-chars {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 30px 30px 30px;
+  column-gap: 10px;
+  row-gap: 10px;
 }

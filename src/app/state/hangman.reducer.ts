@@ -2,23 +2,17 @@ import { Action, createReducer, createSelector, on } from '@ngrx/store';
 import * as GameActions  from './hangman.actions';
 
 export class State {
-  wordLength : number;
-  guessed: string[];
   remaingAttempts : number;
-  maxAttempts : number;
-  guess: string;
-  guessPosition: number[];
-  result: boolean;
+  guessedChars: string[];
+  gameOver: boolean;
+  wordLength: number;
 }
 
 export const initialState: State = {
-    wordLength : 0,
-    guessed: [],
     remaingAttempts : 0,
-    maxAttempts : 0,
-    guess: "",
-    guessPosition: [],
-    result: false    
+    guessedChars: [],
+    gameOver: false,
+    wordLength: 0
 };
 
 const hangmanReducer = createReducer(
@@ -26,22 +20,20 @@ const hangmanReducer = createReducer(
   
   on(GameActions.startSuccess, (state, {payload}) => {
     return {...state, 
-      guess: payload.guess,
-      guessPosition: payload.guessPosition,
-      maxAttempts: payload.maxAttempts,
+      guessedChars: payload.guessedChars,
       remaingAttempts: payload.remaingAttempts,
-      result: payload.result,
-      wordLength: payload.wordLength }
+      gameOver: payload.gameOver,
+      wordLength: payload.wordLength
+     }
   }),
   
   on(GameActions.guessSuccess, (state, {payload}) => {
     return {...state, 
-      guess: payload.guess,
-      guessPosition: payload.guessPosition,
-      maxAttempts: payload.maxAttempts,
+      guessedChars: payload.guessedChars,
       remaingAttempts: payload.remaingAttempts,
-      result: payload.result,
-      wordLength: payload.wordLength }
+      gameOver: payload.gameOver,
+      wordLength: payload.wordLength
+     }
   }),
   
   on(GameActions.reset, (state) => {

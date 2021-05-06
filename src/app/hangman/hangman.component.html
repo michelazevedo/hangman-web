@@ -3,11 +3,18 @@
     <mat-toolbar color="primary">
       <span>The Hangman Game</span>
     </mat-toolbar><br/><br/>
-    <img src={{image}}/>
-    <span *ngFor="let c of guessWord" class="ch-char">{{c}}</span>
-    <br/><br/>
-    <span *ngFor="let ch of characters" class="ch-button">
-      <button mat-raised-button color="primary" (click)="guess(ch)">{{ch}}</button>
-    </span>
+    <div class="container">
+      <div class="img-painel">
+        <img src=assets\{{imageName}}/>
+      </div>
+      <div class="guess-painel" [style]="getGuessPainelStyle()">
+        <div *ngFor="let c of guessWord">{{c}}</div>
+      </div>
+      <div class="buttons-chars">
+        <div *ngFor="let ch of characters">
+          <button mat-raised-button color="primary" (click)="guess(ch)" [disabled]="getButtonDisabled(ch)">{{ch}}</button>
+        </div>
+      </div>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
